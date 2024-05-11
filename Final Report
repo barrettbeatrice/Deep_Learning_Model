@@ -25,7 +25,7 @@ Compiling, Training, and Evaluating the Model
  For this exercise, we had at least three tries to optimize the model and reach 75% accuracy, while keeping parameters and low computation time in mind:
 
     First Attempt: Added a 3rd hidden layer; kept 80, 30, then added 15 neurons for the new layer. (Original model had 2 hidden layers and 80, 30 neurons.) It was hoped that adding an additional hidden layer, with less nodes, meanwhile keeping the "activation" functions (tanh, and relu for each hidden layer) the same, would increase accuracy. Additionally, the number of epochs was increased to 150 in the hopes of digging deeper with more corrective iterations but not at the expense of computation time and efficiency.
-        Accuracy actually decreased a minimal amount to 73%.
+        Accuracy actually decreased a minimal amount below 73%.
     
     Second Attempt: Needed to decrease the epochs and correct for possible over-fitting. Accordingly, lessened epochs to 50 and added a fourth hidden layer-- 80, 30, 10, 5 neurons in nodes. To accomodate for less epochs, it was attempted to bring in more initial input data by lowering the value_count "cutoff". All activation functions kept the same. And "adam" still used for the optimizer.
         Resultingly, after all those changes, the accuracy stayed the same, more or less. It seems that the fourth hidden layer did not make much of an imprint at all and was probably a wasted effort.
