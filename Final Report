@@ -1,0 +1,45 @@
+Step 4: Write a Report on the Neural Network Model
+
+
+Overview of the analysis: Explain the purpose of this analysis.
+
+Results: Using bulleted lists and images to support your answers, address the following questions:
+
+Data Preprocessing
+
+  What variable(s) are the target(s) for your model?
+  The model's target is the "y" variable, which is the "IS_SUCCESSFUL" column.
+  
+  What variable(s) are the features for your model?
+  Model features are composed of the "X" variable, which is comprised of all columns except the "IS_SUCCESSFUL" column, as: "APPLICATION_TYPE" , "AFFILIATION", "CLASSIFICATION", "USE_CASE", "ORGANIZATION", "STATUS", "INCOME_AMT", "SPECIAL_CONSIDERATIONS", "ASK_AMT".
+
+
+  What variable(s) should be removed from the input data because they are neither targets nor features?
+  "EIN & "NAME" were removed from variables, since they are neither targets nor features and thus extraneous.
+
+
+Compiling, Training, and Evaluating the Model
+
+ How many neurons, layers, and activation functions did you select for your neural network model, and why?
+
+ For this exercise, we had at least three tries to optimize the model and reach 75% accuracy, while keeping parameters and low computation time in mind:
+
+    First Attempt: Added a 3rd hidden layer; kept 80, 30, then added 15 neurons for the new layer. (Original model had 2 hidden layers and 80, 30 neurons.) It was hoped that adding an additional hidden layer, with less nodes, meanwhile keeping the "activation" functions (tanh, and relu for each hidden layer) the same, would increase accuracy. Additionally, the number of epochs was increased to 150 in the hopes of digging deeper with more corrective iterations but not at the expense of computation time and efficiency.
+        Accuracy actually decreased a minimal amount to 73%.
+    
+    Second Attempt: Needed to decrease the epochs and correct for possible over-fitting. Accordingly, lessened epochs to 50 and added a fourth hidden layer-- 80, 30, 10, 5 neurons in nodes. To accomodate for less epochs, it was attempted to bring in more initial input data by lowering the value_count "cutoff". All activation functions kept the same. And "adam" still used for the optimizer.
+        Resultingly, after all those changes, the accuracy stayed the same, more or less. It seems that the fourth hidden layer did not make much of an imprint at all and was probably a wasted effort.
+
+    
+    Third Attempt: Tried to "simplify" the amount of data training and fitting for third round. The hidden layers were brought back down to 3, and notably, the neuron count was lessened for all (to 10, 8, 6 respectively). The activation functions were all changed to "relu", optimization kept at "adam". Epochs were returned to 100 to make-up for the smaller amounts of nodes and layers. Again, the thought process behind this was to correct for the overfitting of the earlier attempt and overall focus more on efficiency in framing the accuracy.
+        This time, again, the accuracy did increase a small bit to 73.2%, thus breaking that 73% threshold indicates the model optimization efforts are on the correct track.
+
+ 
+ Were you able to achieve the target model performance?
+    No, the closest achieved was 73.2%.
+ 
+ What steps did you take in your attempts to increase model performance?
+    Each attempt included cleanining & removing extraneous data, experimenting with data "cut-offs", and setting up a deep neural net & with diffrent numbers of layers, and trying out certain activation functions, optimizers & epochs.
+
+Summary: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and then explain your recommendation.
+    Overall, as the accuracy remained more or less right around 73% accuracy for all optimization attempts, the general neighborhood of neurons, number of layers, and epochs seems to have been appropriate. Perhaps, experimenting with different types of activation and optimizer functions would be the key to better zeroing in on a more accurate model without sacrificing too much computational efficiency.
